@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  <%- include('./common/stylesheets') %>
+   
+  </head>
+<body style="background-color: #F0FFFF;">
+<br>
+<div class="container">
+	 <p>Welcome to <%= name %></p>
+	 <p><%= name %> Your Email is <%= email %> </p>
+
+  <button type="submit" class="btn btn-success" id="logout-btn">Logout</button>
+</div>
+  <%- include('./common/javascript') %>
+
+<script type="text/javascript">
+$('#logout-btn').click(function(e){
+	e.preventDefault();
+   var data = "Good byee";
+	
+$.ajax({
+
+method : "post",
+
+url : "/welcome",
+
+data : data,
+
+success : function(result){
+	   if(result.err){
+	   	alert(result.result);
+	   }else{
+	   	window.location.href="/login";
+
+	   }
+
+        
+}
+
+
+}); //ajax*/
+
+
+});
+
+	  	
+</script>
+</body>
+</html>

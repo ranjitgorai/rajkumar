@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  
+    <%- include('./common/stylesheets') %>
+  </head>
+<body>
+<br>
+<div class="container well well-lg ">
+   <center><h3><b>SignUp Form</b></h3></center>
+<hr>
+<form class="form-horizontal" role="form" id="myform" >
+	
+	<div class="col-sm-6">
+	    <div class="form-group">
+		<label class="col-sm-2 control-label">Email</label>
+		<div class="col-sm-7">
+		<input class="form-control" id="email" type="email" />
+		</div>
+        </div>
+	</div>
+    
+    <div class="col-sm-6">
+	    <div class="form-group">
+		<label class="col-sm-2 control-label">Password</label>
+		<div class="col-sm-7">
+		<input class="form-control" id="password" type="password" />
+		</div>
+        </div>
+	</div>
+
+   <div class="col-sm-6">
+	    <div class="form-group">
+		<label class="col-sm-2 control-label">First_Name</label>
+		<div class="col-sm-7">
+		<input class="form-control" id="fname" type="text" />
+		</div>
+        </div>
+	</div>
+    <div class="col-sm-6">
+	    <div class="form-group">
+		<label class="col-sm-2 control-label">Last_Name</label>
+		<div class="col-sm-7">
+		<input class="form-control" id="lname" type="text" />
+		</div>
+        </div>
+	</div>
+	
+
+<div class="form-footer" align="center">
+<button type="submit"  name="submit" class="btn btn-success" id="submit_btn">Submit</button>
+</div> 
+
+    
+</form>
+
+</div><!--container-->
+
+
+<%- include('./common/javascript') %>
+
+<script type="text/javascript">
+	
+
+$('#submit_btn').click(function(e){
+	  	e.preventDefault();
+
+var data = {
+
+	 email : $('#email').val(),
+     password : $('#password').val(),
+     name :
+		   {
+			first: $('#fname').val(),
+			last: $('#lname').val()
+			}
+};
+//console.log(dat);
+$.ajax({
+
+   method : "post",
+
+	url : "/signup",
+
+	data : data,
+   
+	success : function(result){
+
+	        if(!result.error)
+	        {
+	        	alert("success");
+	        }
+	        else{
+	        	alert("error");
+	        }
+	}
+
+
+}); //ajax
+
+	    
+
+});
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
