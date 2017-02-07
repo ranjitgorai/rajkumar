@@ -1,6 +1,3 @@
-
-
-
 module.exports ={
 	get : function(req,res){
 		/*if(req.session.email!=null){
@@ -10,7 +7,7 @@ module.exports ={
        	 res.redirect('login');
 
        }*/
-       res.render('welcome',{name:req.session.name ,email:req.session.email});
+       res.render('welcome',{name:req.session.name , email:req.session.email, time:req.session.logintime});
 	},
 	post : function(req,res){
            console.log(res.body);

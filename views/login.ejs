@@ -1,82 +1,298 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-  
-    <%- include('./common/stylesheets') %>
-     
-  </head>
-<body>
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%- include('./common/stylesheet') %>
+</head>
+<body style="background-image:url(../../image/2.jpg); no-repeat; background-size: 1320px,500px;">
 <br>
 <div class="container">
-<div class="col-sm-4"></div>
-<div class="col-sm-4 well well-lg">
-
-	<center><h4><b> Login Form</b></h4></center>
-	<hr>
-	<form>
-	  <div class="form-group">
-	    <label for="email">Email:</label>
-	    <input type="email" class="form-control" id="email" placeholder="Enter Your Email"  required="required">
-	  </div>
-	  <div class="form-group">
-	    <label for="pwd">Password:</label>
-	    <input type="password" class="form-control" id="password">
-	  </div>
-	  
-	  <button type="submit" class="btn btn-success" id="login-btn">Login</button>
-	</form>
+	<div class="col-sm-4"></div>
+	<div style="background-color: gray;opacity: 0.8;" class="jumbotron col-sm-4">
 	
+	<legend><font size="4" color="#006400"><center><strong><i class="fa fa-user" aria-hidden="true"></i>Login Form</strong></center></font></legend>
+  <form>
+    <div class="form-group">
+    <div class="input-group">
+    <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+    <input name="email" id="email" type="email" class="form-control" placeholder="Email" required="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+    <div class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+    <input name="password" id="password" type="password" class="form-control" placeholder="Password" required="required">
+   </div>
+  </div>
+
+  <button type="submit" class="btn btn-info"" id="login-btn" style="background-color:#006400;"><font color="#7FFF00"><strong>Login</strong></font></button>
+  <button type="button" class="btn btn-link" style="text-decoration:none" id="forgot-btn"><strong><font color="#00FF00">Forgot Password</font></strong></button>
+
+
+  <hr>
+  <font color="#FF0000"><b>Not Registered?</b></font>
+  <button type="button" class="btn btn-link" style="text-decoration:none"  data-toggle="modal" data-target="#myModal"><strong><font color="#40E0D0">Signup here</font></strong></button>
+
+
+</form>
 </div>
-<div class="col-sm-4"></div>
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <div class="modal-body">
+
+
+         <div class="signup-form-container">
+        <form  role="form" id="register-form" autocomplete="off" >
+          <div class="form-header">
+            <h3 class="form-title"><i class="fa fa-user" aria-hidden="true"></i>Sign Up</h3>
+            <div class="pull-right">
+            <h3 class="form-title"><i class="fa fa-pencil" aria-hidden="true"></i></h3>
+            </div>
+          </div><!--form header-->
+          <div class="form-body">
+            <div class="row">
+               <div class="form-group col-lg-6">
+              <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+              <input name="first" id="first" type="text" class="form-control" placeholder="Firstname" required="required">
+              </div>
+              <span class="help-block" id="error"></span>
+              </div>
+
+              <div class="form-group col-lg-6">
+              <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+              <input name="lname" id="lname" type="text" class="form-control" placeholder=" Lastname" required="required">
+              </div>
+              <span class="help-block" id="error"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+             <div class="input-group">
+             <div class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+             <input name="mail" id="mail" type="email" class="form-control" placeholder="Email" required="required">
+             </div>
+             <span class="help-block" id="error"></span>
+             </div>
+
+             <div class="form-group">
+              <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+              <input name="phone" id="phone" type="number" class="form-control" placeholder="Mobile Number">
+              </div>
+              <span class="help-block" id="error"></span>
+              </div>
+
+             <div class="row">
+                <div class="form-group col-lg-6">
+               <div class="input-group">
+               <div class="input-group-addon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
+               <input name="city" id="city" type="text" class="form-control" placeholder="Your City" required="required">
+               </div>
+               <span class="help-block" id="error"></span>
+               </div>
+
+               <div class="form-group col-lg-6">
+               <div class="input-group">
+               <div class="input-group-addon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
+               <input name="state" id="state" type="text" class="form-control" placeholder="Your State" required="required">
+               </div>
+               <span class="help-block" id="error"></span>
+               </div>
+             </div>
+
+             <div class="row">
+                <div class="form-group col-lg-6">
+               <div class="input-group">
+               <div class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></div>
+               <input name="country" id="country" type="text" class="form-control" placeholder="Your Country" required="required">
+               </div>
+               <span class="help-block" id="error"></span>
+               </div>
+
+               <div class="form-group col-lg-6">
+               <div class="input-group">
+               <div class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+               <input name="pin" id="pin" type="number" class="form-control" placeholder="Your Pincode" required="required">
+               </div>
+               <span class="help-block" id="error"></span>
+               </div>
+             </div>
+
+
+
+          </div><!--form body-->
+          <div class="form-footer" align="center">
+           <button type="submit"  name="submit" class="btn btn-info" id="register-btn">
+           Register
+           </button>
+           </div>
+         </form>
+        </div><!--form container-->
+
+
+         
+    </div><!-- modal body-->
+        
+    </div>
+      
+    </div>
+  </div>
+
+
 
 </div><!--container-->
-<%- include('./common/javascript') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <%- include('./common/javascript') %>
 
 <script type="text/javascript">
-	$('#login-btn').click(function(e){
-		e.preventDefault();
+$('#login-btn').click(function(e){
+    e.preventDefault();
 
-		var data = {
+    var data = {
 
-			 email : $('#email').val(),
-		     password : $('#password').val(),
-        }
+          email : $('#email').val(),
+         password : $('#password').val(),
+        };
+     console.log(data);
 
-$.ajax({
+  $.ajax({
 
-method : "post",
+  method : "post",
 
-url : "/login",
+  url : "/",
 
-data : data,
+  data : data,
+ 
 
-success : function(result){
-	   if(result.error){
-	   	new PNotify({
-	   		tittle : 'Regular notice',
-	   		type :'error',
-	   		text :result.result
+  success : function(result){
+       if(result.error){
+        new PNotify({
+          tittle : 'Regular notice',
+          type :'error',
+          text :result.result,
 
-	   	});
-	   	//$('#demo').html(result.result);
-	   }else{
-	   		
-	   	window.location.href="/welcome";
+        });
+        //$('#demo').html(result.result);
+       }else{
+          
+        window.location.href="/welcome";
 
-	   }
+       }
 
-        
-}
+          
+    }
+
+
+   });
+ 
+});
+
+  $('#forgot-btn').click(function(e){
+      window.location.href="/forgot";
+
+  }); 
+
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <script type="text/javascript">
+
+ $(document).ready(function(){
+
+   $('#register-btn').click(function(e){
+        e.preventDefault();
+
+        var data = {
+
+          name :
+            {
+            first: $('#first').val(),
+            last: $('#lname').val(),
+           },
+         email : $('#mail').val(),
+         phone : $('#phone').val(),
+         address :
+           {
+
+           city: $('#city').val(),
+           state: $('#state').val(),
+           pin: $('#pin').val(),
+             country: $('#country').val()
+          }
+
+        };
+        console.log(data);
+    $.ajax({
+
+
+       method : "POST",
+
+      url : "/login",
+
+      data : data,
+
+    success : function(result){
+
+                   if(result.error){
+                      new PNotify({
+                        tittle : 'Regular notice',
+                        type :'error',
+                        text :result.result
+
+                      });
+                    }else{
+                      new PNotify({
+                        tittle : 'Regular notice',
+                        type :'success',
+                        text :result.result
+
+                      });
+                      //alert(result.result);
+                    }
+    }
+
+
+  }); //ajax
+
+
+
+   });
 
 
 });
- 
 
-
-
-        
-	});
-	  	
 </script>
+
+
+
 </body>
+</html>

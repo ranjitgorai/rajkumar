@@ -4,8 +4,8 @@ var bcrypt = require('bcrypt-nodejs');
 // var config = require('../config')[process.env.NODE_ENV || 'development'];
 
 var UserSchema = new mongoose.Schema({
-    
-    
+
+
   email: {
       type: String,
       lowercase: true,
@@ -31,7 +31,24 @@ var UserSchema = new mongoose.Schema({
      type: String
    },
   },
-  
+  phone: Number,
+  address:{
+    city: {
+      type: String,
+    },
+    state: {
+      type: String,
+    },
+    
+    pin:{
+       type : Number,
+    },
+    country: {
+      type: String,
+    }
+
+  }
+
 
 });
 
