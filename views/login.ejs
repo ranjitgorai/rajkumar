@@ -32,7 +32,7 @@
   </div>
 
   <button type="submit" class="btn btn-info"" id="login-btn" style="background-color:#006400;"><font color="#7FFF00"><strong>Login</strong></font></button>
-  <button type="button" class="btn btn-link" style="text-decoration:none" id="forgot-btn"><strong><font color="#00FF00">Forgot Password</font></strong></button>
+  <button type="button" class="btn btn-link" style="text-decoration:none" id="forgot"><strong><font color="#00FF00">Forgot Password</font></strong></button>
 
 
   <hr>
@@ -162,6 +162,7 @@
  <%- include('./common/javascript') %>
 
 <script type="text/javascript">
+$(document).ready(function() {
 $('#login-btn').click(function(e){
     e.preventDefault();
 
@@ -204,11 +205,36 @@ $('#login-btn').click(function(e){
  
 });
 
-  $('#forgot-btn').click(function(e){
-      window.location.href="/forgot";
+  $('#forgot').click(function () {
+    //alert("hi");
+          var data = {
+              email : $("#email").val()
+            };  
+            //alert($("#email").val());
+          $.ajax({
+          type:"POST",
+          url:"/mymail",
+          data :  data, 
+          //dataType: 'json',  // multiple data sent using ajax
+          success: function (result) { 
+            if(result.error){
+             new PNotify({
+              tittle : 'Regular notice',
+              type :'error',
+              text :result.result,
 
-  }); 
+              });
+        
+            }else{
+              alert("check your mail.");
+            }
 
+          }
+
+      });
+  });
+});
+</script>
     
 </script>
 

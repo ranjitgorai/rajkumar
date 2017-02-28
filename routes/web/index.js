@@ -4,11 +4,17 @@ var login = require('./login');
 var router = express.Router();
 var User = require('../../models/user');
 var welcome = require('./welcome');
-
+var changepwd = require('./changepwd');
+var change = require('./changepass');
 
 router.get('/', function(req, res, next) {
   res.render('login');
 });
+router.get('/changepass/:token', change.getChangePass);
+    
+router.post('/changepass', change.postChangePass);
+router.post('/mymail', changepwd.postSendChangePassword);
+/////////////////////////////////////////////
 router.post('/', function(req, res, next) {
 	var mail = req.body.email;
 	console.log(mail);
